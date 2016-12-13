@@ -18,8 +18,8 @@ namespace Folderer
 
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                string[] files = System.IO.Directory.GetFiles(fbd.SelectedPath, "*.*")
-                    .Where(s => s.EndsWith(".jpg") || s.EndsWith(".jpeg") || s.EndsWith(".gif") || s.EndsWith(".mp4") || s.EndsWith(".3gp")).ToArray();
+                string[] files = System.IO.Directory.GetFiles(fbd.SelectedPath, "*.*").Select(s => s.ToLower())
+                    .Where(s => s.EndsWith(".jpg") || s.EndsWith(".jpeg") || s.EndsWith(".gif") || s.EndsWith(".mp4") || s.EndsWith(".3gp") || s.EndsWith(".mov")).ToArray();
 
                 if (files.Length > 0)
                 {
@@ -85,6 +85,12 @@ namespace Folderer
             Console.WriteLine();
             Console.WriteLine("İşlem tamamlandı lütfen bir tuşa basınız.");
             Console.ReadKey();
+
+        }
+
+        public void adad()
+        {
+            // asasa
         }
     }
 }
