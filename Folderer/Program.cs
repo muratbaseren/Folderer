@@ -18,8 +18,8 @@ namespace Folderer
 
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                string[] files = System.IO.Directory.GetFiles(fbd.SelectedPath, "*.*").Select(s => s.ToLower())
-                    .Where(s => s.EndsWith(".jpg") || s.EndsWith(".jpeg") || s.EndsWith(".gif") || s.EndsWith(".mp4") || s.EndsWith(".3gp") || s.EndsWith(".mov")).ToArray();
+                string[] files = System.IO.Directory.GetFiles(fbd.SelectedPath, "*.*")
+                    .Where(s => s.ToLower().EndsWith(".jpg") || s.ToLower().EndsWith(".jpeg") || s.ToLower().EndsWith(".gif") || s.ToLower().EndsWith(".mp4") || s.ToLower().EndsWith(".3gp") || s.ToLower().EndsWith(".mov")).ToArray();
 
                 if (files.Length > 0)
                 {
@@ -47,7 +47,7 @@ namespace Folderer
                     {
                         Console.WriteLine("'" + file + "' taşınıyor..");
 
-                        string fName = file.Substring(left+1);
+                        string fName = file.Substring(left + 1);
                         // c://windows/users/murat/desktop/IMG-20160415-WA0002.jpeg
                         // c://windows/users/murat/desktop/20160415-WA0002.jpeg
 
